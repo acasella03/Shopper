@@ -26,7 +26,9 @@ public abstract class Contenedor implements IContenedor {
      * Producto en un contenedor.
      */
     private Set<IProducto> producto;
-
+    /**
+     * Variable auxiliar.
+     */
     private Set<IProducto> productos;
 
     /**
