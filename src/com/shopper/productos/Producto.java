@@ -43,7 +43,7 @@ public abstract class Producto implements IProducto {
 
     @Override
     public String toString() {
-        return "Producto [categoría=" + getCategoria() + ", referencia=" + referencia + ", peso=" + peso + ", volumen=" + volumen + ", contenedor="
-                + contenedor.getReferencia() + "]";
+        return "Producto de " + getCategoria() + "\n\t\t\tRef.= " + referencia + "\n\t\t\tpeso= " + peso + "\n\t\t\tvolumen= " + volumen + "\n\t\t\tcontenedor= "
+                + contenedor.getReferencia();
     }
 }

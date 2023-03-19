@@ -146,8 +146,8 @@ public abstract class Contenedor implements IContenedor {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Contenedor " + referencia + " [" + getTipo() + "] (sup " + getSuperficie() + "cm2 - vol " + getVolumen() +
-                "cm3 - resistencia " + getResistencia() + " g).\n");
+        StringBuilder sb = new StringBuilder("Contenedor [" + getTipo() + "]" + referencia + " (sup " + getSuperficie() + "cm2 - vol " + getVolumen() +
+                "cm3 - resistencia " + getResistencia() + " gr).\n");
         if (productos.isEmpty()) {
             sb.append("\t\tvacío\n");
         }

@@ -1,5 +1,7 @@
 package com.shopper;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -9,6 +11,9 @@ import java.util.Set;
  * Obtener el contenedor que usa el pedido.
  * Agregar tipo de contenedor del pedido.
  * Agregar producto de acuerdo al tipo de contenedor del pedido.
+ * Crear fichero del pedido.
+ * Leer fichero del pedido.
+ * Mostrar fichero del pedido.
  */
 
 public interface IPedido {
@@ -17,4 +22,7 @@ public interface IPedido {
     Set<IContenedor> getContenedores();
     void addContenedor(IContenedor contenedor);
     IContenedor addProducto(IProducto producto);
+    void agregarPalabras(File fichero);
+    ArrayList<Pedido> leerObjeto(File fichero);
+    void mostrarFichero(ArrayList<Pedido> lista);
 }

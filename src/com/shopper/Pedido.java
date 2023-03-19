@@ -1,6 +1,10 @@
 package com.shopper;
 
+import javax.imageio.IIOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -15,6 +19,10 @@ public class Pedido implements IPedido {
      * Tipo de contenedor del pedido.
      */
     private Set<IContenedor> contenedores;
+
+    FileWriter out = null;
+    PrintWriter fich = null;
+    Scanner sc;
 
     /**
      * Constructor parametrizado.
@@ -43,11 +51,11 @@ public class Pedido implements IPedido {
      */
     @Override
     public Set<IProducto> getProductos() {
-        Set<IProducto> productos=null;
-        for (IContenedor c: contenedores) {
-            if(productos==null){
-                productos=c.getProductos();
-            }else {
+        Set<IProducto> productos = null;
+        for (IContenedor c : contenedores) {
+            if (productos == null) {
+                productos = c.getProductos();
+            } else {
                 productos.addAll(c.getProductos());
             }
         }
@@ -82,8 +90,8 @@ public class Pedido implements IPedido {
      */
     @Override
     public IContenedor addProducto(IProducto producto) {
-        for (IContenedor contenedor: contenedores) {
-            if(contenedor.meter(producto)){
+        for (IContenedor contenedor : contenedores) {
+            if (contenedor.meter(producto)) {
                 return contenedor;
             }
         }
@@ -104,4 +112,53 @@ public class Pedido implements IPedido {
         }
         return sb.toString();
     }
+
+    /**
+     * Método para crear un fichero.
+     *
+     * @param fichero donde se va a almacenar el pedido.
+     */
+    @Override
+    public void agregarPalabras(File fichero) {
+        try {
+            out = new FileWriter(fichero, true);
+            fich = new PrintWriter(out);
+            fich.println(new Pedido(referencia));
+        } catch (IOException e) {
+            System.out.println("Error de escritura" + e.getMessage());
+        } finally {
+            fich.close();
+        }
+    }
+
+    /**
+     * Método para leer un fichero.
+     *
+     * @param fichero que se leerá.
+     * @return fichero leído.
+     */
+    @Override
+    public ArrayList<Pedido> leerObjeto(File fichero) {
+        ArrayList<Pedido> lista = new ArrayList<>();
+        String[] aux;
+        try {
+            sc = new Scanner(fichero);
+            while (sc.hasNextLine()) {
+                aux = sc.nextLine().split("");
+                lista.add(new Pedido(aux[0]));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("No se puede leer el fichero");
+        } finally {
+            sc.close();
+        }
+        return lista;
+    }
+
+    @Override
+    public void mostrarFichero(ArrayList<Pedido> lista) {
+            for (Pedido pedido : lista) {
+                System.out.println(pedido);
+            }
+        }
 }
