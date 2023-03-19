@@ -14,7 +14,7 @@ public class Supermercado {
     public static final String PREGUNTA2 = "¿Tienes más productos? Indica S/N";
 
     public static void main(String[] args) {
-        IPedido miPedido = null;
+        IPedido miPedido = new Pedido();
         String contenedor;
         File f = new File("Pedidos.txt");
 
@@ -67,12 +67,14 @@ public class Supermercado {
                     } while (PedirDatos.pedirDatos(PREGUNTA2).equalsIgnoreCase("s"));
 
                     JOptionPane.showMessageDialog(null, "Mi pedido con productos: " + miPedido);
-
+                    break;
                 case 4:
                     miPedido.agregarPalabras(f);
+                    break;
                 case 5:
-                    ArrayList<Pedido> lista = miPedido.leerObjeto(f);
-                    miPedido.mostrarFichero(lista);
+                    /*ArrayList<Pedido> lista = miPedido.leerObjeto(f);
+                    miPedido.mostrarFichero(lista);*/
+                    break;
                 default:
                     break;
             }

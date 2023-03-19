@@ -1,6 +1,7 @@
 package com.shopper;
 
 import javax.imageio.IIOException;
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -32,6 +33,12 @@ public class Pedido implements IPedido {
     public Pedido(String referencia) {
         this.referencia = referencia;
         this.contenedores = new HashSet<>();
+    }
+
+    /**
+     * Constructor vacío.
+     */
+    public Pedido() {
     }
 
     /**
@@ -123,7 +130,7 @@ public class Pedido implements IPedido {
         try {
             out = new FileWriter(fichero, true);
             fich = new PrintWriter(out);
-            fich.println(new Pedido(referencia));
+            fich.println(new Pedido(toString()));
         } catch (IOException e) {
             System.out.println("Error de escritura" + e.getMessage());
         } finally {
@@ -144,7 +151,7 @@ public class Pedido implements IPedido {
         try {
             sc = new Scanner(fichero);
             while (sc.hasNextLine()) {
-                aux = sc.nextLine().split("");
+                aux = sc.nextLine().split(": ");
                 lista.add(new Pedido(aux[0]));
             }
         } catch (FileNotFoundException e) {
@@ -155,10 +162,15 @@ public class Pedido implements IPedido {
         return lista;
     }
 
+    /**
+     * Método que muestra contenido del fichero.
+     *
+     * @param lista que contiene el fichero.
+     */
     @Override
     public void mostrarFichero(ArrayList<Pedido> lista) {
-            for (Pedido pedido : lista) {
-                System.out.println(pedido);
-            }
+        for (Pedido pedido : lista) {
+            JOptionPane.showMessageDialog(null, pedido);
         }
+    }
 }
