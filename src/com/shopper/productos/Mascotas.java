@@ -16,6 +16,7 @@ public class Mascotas extends Producto {
 
     @Override
     public boolean esCompatible(IProducto p) {
-        return !Categoria.DROGUERIA.equals(p.getCategoria());
+
+        return !Categoria.DROGUERIA.equals(p.getCategoria()) && !Categoria.ALIMENTACION.equals(p.getCategoria()) && !Categoria.HIGIENE.equals(p.getCategoria());
     }
 }

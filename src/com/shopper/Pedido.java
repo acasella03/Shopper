@@ -106,14 +106,14 @@ public class Pedido implements IPedido {
     }
 
     /**
-     * Imprime información el pedido.
+     * Imprime por ventana información del pedido.
      *
      * @return información completa del pedido.
      */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Pedido: " + referencia + "\n");
+        sb.append("PEDIDO: " + referencia + "\n");
         for (IContenedor contenedor : contenedores) {
             sb.append("\t" + contenedor + "\n");
         }
@@ -126,7 +126,7 @@ public class Pedido implements IPedido {
      * @param fichero donde se va a almacenar el pedido.
      */
     @Override
-    public void agregarPalabras(File fichero) {
+    public void agregarContenidoFichero(File fichero) {
         try {
             out = new FileWriter(fichero, true);
             fich = new PrintWriter(out);
@@ -138,39 +138,4 @@ public class Pedido implements IPedido {
         }
     }
 
-    /**
-     * Método para leer un fichero.
-     *
-     * @param fichero que se leerá.
-     * @return fichero leído.
-     */
-    @Override
-    public ArrayList<Pedido> leerObjeto(File fichero) {
-        ArrayList<Pedido> lista = new ArrayList<>();
-        String[] aux;
-        try {
-            sc = new Scanner(fichero);
-            while (sc.hasNextLine()) {
-                aux = sc.nextLine().split(": ");
-                lista.add(new Pedido(aux[0]));
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("No se puede leer el fichero");
-        } finally {
-            sc.close();
-        }
-        return lista;
-    }
-
-    /**
-     * Método que muestra contenido del fichero.
-     *
-     * @param lista que contiene el fichero.
-     */
-    @Override
-    public void mostrarFichero(ArrayList<Pedido> lista) {
-        for (Pedido pedido : lista) {
-            JOptionPane.showMessageDialog(null, pedido);
-        }
-    }
 }

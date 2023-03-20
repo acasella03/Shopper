@@ -16,17 +16,17 @@ public class FactoryProductos {
     public static IProducto getProducto(int tipoProducto) {
         switch (tipoProducto) {
             case FRESCOS:
-                return new Fresco(PedirDatos.pedirDatos("Escribe referencia del producto fresco:"), PedirDatos.pedirEntero("Escribe el peso total del producto fresco:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto fresco:"));
+                return new Fresco(PedirDatos.pedirDatos("Escribe nombre del producto fresco:"), PedirDatos.pedirEntero("Escribe el peso total(gr) del producto fresco:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto fresco:"));
             case CONGELADOS:
-                return new Congelado(PedirDatos.pedirDatos("Escribe referencia del producto cogelado:"), PedirDatos.pedirEntero("Escribe el peso total del producto congelado:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto congelado:"));
+                return new Congelado(PedirDatos.pedirDatos("Escribe nombre del producto congelado:"), PedirDatos.pedirEntero("Escribe el peso total(gr) del producto congelado:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto congelado:"));
             case NOPERECEDEROS:
-                return new NoPerecedero(PedirDatos.pedirDatos("Escribe referencia del producto no perecedero:"), PedirDatos.pedirEntero("Escribe el peso total del producto no perecedero:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto no perecedero:"));
+                return new NoPerecedero(PedirDatos.pedirDatos("Escribe nombre del producto no perecedero:"), PedirDatos.pedirEntero("Escribe el peso total(gr) del producto no perecedero:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto no perecedero:"));
             case DROGUERIA:
-                return new Drogueria(PedirDatos.pedirDatos("Escribe referencia del producto de droguería:"), PedirDatos.pedirEntero("Escribe el peso total del producto de droguería:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto de droguería:"));
+                return new Drogueria(PedirDatos.pedirDatos("Escribe nombre del producto de droguería:"), PedirDatos.pedirEntero("Escribe el peso total(gr) del producto de droguería:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto de droguería:"));
             case HIGIENE:
-                return new Higiene(PedirDatos.pedirDatos("Escribe referencia del producto de higiene:"), PedirDatos.pedirEntero("Escribe el peso total del producto de higiene:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto de higiene:"));
+                return new Higiene(PedirDatos.pedirDatos("Escribe nombre del producto de higiene:"), PedirDatos.pedirEntero("Escribe el peso total(gr) del producto de higiene:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto de higiene:"));
             case MASCOTA:
-                return new Mascotas(PedirDatos.pedirDatos("Escribe referencia del producto para mascotas:"), PedirDatos.pedirEntero("Escribe el peso total del producto para mascotas:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto para mascotas:"));
+                return new Mascotas(PedirDatos.pedirDatos("Escribe nombre del producto para mascotas:"), PedirDatos.pedirEntero("Escribe el peso total(gr) del producto para mascotas:"), PedirDatos.pedirEntero("Escribe el volumen(cm3) del producto para mascotas:"));
             default:
                 return null;
         }

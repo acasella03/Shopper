@@ -12,8 +12,6 @@ import java.util.Set;
  * Agregar tipo de contenedor del pedido.
  * Agregar producto de acuerdo al tipo de contenedor del pedido.
  * Crear fichero del pedido.
- * Leer fichero del pedido.
- * Mostrar fichero del pedido.
  */
 
 public interface IPedido {
@@ -22,7 +20,5 @@ public interface IPedido {
     Set<IContenedor> getContenedores();
     void addContenedor(IContenedor contenedor);
     IContenedor addProducto(IProducto producto);
-    void agregarPalabras(File fichero);
-    ArrayList<Pedido> leerObjeto(File fichero);
-    void mostrarFichero(ArrayList<Pedido> lista);
+    void agregarContenidoFichero(File fichero);
 }

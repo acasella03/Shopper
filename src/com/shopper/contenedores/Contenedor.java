@@ -2,7 +2,6 @@ package com.shopper.contenedores;
 
 import com.shopper.IContenedor;
 import com.shopper.IProducto;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -141,20 +140,24 @@ public abstract class Contenedor implements IContenedor {
      */
     @Override
     public boolean resiste(IProducto producto) {
-        return resistencia > producto.getPeso();
+        return resistencia >= producto.getPeso();
     }
 
+    /**
+     * Para mostrar en ventana.
+     *
+     * @return cadena de caracteres con la información del contenedor.
+     */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("Contenedor [" + getTipo() + "] " + referencia + " (sup " + getSuperficie() + "cm2 - vol " + getVolumen() +
-                "cm3 - resistencia " + getResistencia() + " gr).\n");
+        StringBuilder sb = new StringBuilder(">>" + getTipo() + ": " + referencia + " (resistencia " + getResistencia() + " gr).\n");
         if (productos.isEmpty()) {
             sb.append("\t\tvacío\n");
         }
         for (IProducto p : productos) {
             sb.append("\t\t" + p + "\n");
         }
-        sb.append("\t\t>> Disponible vol " + volumenDisponible() + "cm3");
+        sb.append("\t\t--> Disponible en la " + referencia + "vol : " + volumenDisponible() + "cm3");
         return sb.toString();
     }
 }
