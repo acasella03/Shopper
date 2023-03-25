@@ -127,6 +127,7 @@ public class Pedido implements IPedido {
      *
      * @return información completa del pedido.
      */
+    @Override
     public String mostrarParaFichero() {
         StringBuilder sb1 = new StringBuilder();
         sb1.append(referencia + ", ");
