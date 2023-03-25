@@ -30,3 +30,6 @@ En la primera versión de ésta aplicación no es necesario **optimizar** la <u>
     <tr><td>tamaños</td></tr>
     <tr><td>categorías</td></tr>
 </table>
+
+### Diagrama de Clases:
+![Diagrama](https://github.com/acasella03/Shopper/blob/main/Shopper.png)
