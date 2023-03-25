@@ -11,6 +11,7 @@ import com.shopper.enums.Categoria;
  * Comprobar si un producto puede compartir espacio con otro dentro de un contenedor.
  * Comprobar si el contenedor tiene espacio suficiente para agregar otro producto.
  * Identificar cuando un producto ya está dentro del contenedor.
+ * Visualización fichero.
  */
 
 public interface IProducto {
@@ -21,4 +22,5 @@ public interface IProducto {
     boolean esCompatible(IProducto p);
     boolean tengoEspacio(IContenedor contenedor);
     void meter(IContenedor contenedor);
+    String mostrar();
 }

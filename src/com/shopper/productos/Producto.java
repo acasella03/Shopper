@@ -46,4 +46,9 @@ public abstract class Producto implements IProducto {
         return getCategoria() + ": " + "\n\t\t\t" + referencia + "\n\t\t\tcontenedor utilizado: "
                 + contenedor.getReferencia();
     }
+
+    @Override
+    public String mostrar() {
+        return getCategoria() + ", " + referencia;
+    }
 }

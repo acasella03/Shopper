@@ -15,6 +15,7 @@ import java.util.Set;
  * Comprobar si un producto cabe o no en el contenedor y lo agrega o no.
  * Comprobar la resistencia del contenedor ante un producto.
  * Obtener la superficie del contenedor.
+ * Visualización fichero.
  */
 
 public interface IContenedor {
@@ -27,4 +28,5 @@ public interface IContenedor {
     boolean meter(IProducto producto);
     boolean resiste(IProducto producto);
     int getSuperficie();
+    String mostrar();
 }

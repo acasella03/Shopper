@@ -160,4 +160,20 @@ public abstract class Contenedor implements IContenedor {
         sb.append("\t\t--> Disponible en la " + referencia + "vol : " + volumenDisponible() + "cm3");
         return sb.toString();
     }
+    /**
+     * Para imprimir en fichero.
+     *
+     * @return cadena de caracteres con la información del contenedor.
+     */
+    @Override
+    public String mostrar(){
+        StringBuilder sb1 = new StringBuilder(getTipo() + ", " + referencia + ", " + getResistencia());
+        if (productos.isEmpty()) {
+            sb1.append(", vacío.");
+        }
+        for (IProducto p : productos) {
+            sb1.append(", "+ p.mostrar());
+        }
+        return sb1.toString();
+    }
 }

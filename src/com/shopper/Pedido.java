@@ -1,5 +1,7 @@
 package com.shopper;
 
+import com.shopper.contenedores.Contenedor;
+
 import javax.imageio.IIOException;
 import javax.swing.*;
 import java.io.*;
@@ -121,6 +123,20 @@ public class Pedido implements IPedido {
     }
 
     /**
+     * Imprime el fichero información del pedido.
+     *
+     * @return información completa del pedido.
+     */
+    public String mostrarParaFichero() {
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append(referencia + ", ");
+        for (IContenedor contenedor : contenedores) {
+            sb1.append(contenedor.mostrar() + ",");
+        }
+        return sb1.toString();
+    }
+
+    /**
      * Método para crear un fichero.
      *
      * @param fichero donde se va a almacenar el pedido.
@@ -130,7 +146,7 @@ public class Pedido implements IPedido {
         try {
             out = new FileWriter(fichero, true);
             fich = new PrintWriter(out);
-            fich.println(new Pedido(toString()));
+            fich.println(new Pedido(mostrarParaFichero()));
         } catch (IOException e) {
             System.out.println("Error de escritura" + e.getMessage());
         } finally {
