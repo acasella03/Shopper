@@ -132,7 +132,7 @@ public class Pedido implements IPedido {
         StringBuilder sb1 = new StringBuilder();
         sb1.append(referencia + ", ");
         for (IContenedor contenedor : contenedores) {
-            sb1.append(contenedor.mostrar() + ",");
+            sb1.append(contenedor.mostrar());
         }
         return sb1.toString();
     }
