@@ -70,6 +70,7 @@ public class Supermercado {
                         break;
                     case 4:
                         miPedido.agregarContenidoFichero(f);
+                        JOptionPane.showMessageDialog(null,"Pedido añadido al fichero");
                         break;
                     default:
                         break;
